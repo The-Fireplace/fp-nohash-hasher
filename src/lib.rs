@@ -32,6 +32,26 @@ use core::{fmt, hash::{BuildHasherDefault, Hasher}, marker::PhantomData};
 #[cfg(feature = "std")]
 pub type IntMap<K, V> = std::collections::HashMap<K, V, BuildNoHashHasher<K>>;
 
+/// A `HashMap` with a `char` domain, using `NoHashHasher` to perform no hashing at all.
+///
+/// # Examples
+///
+/// See [`IsEnabled`] for use with custom types.
+///
+/// ```
+/// use fp_nohash_hasher::CharMap;
+///
+/// let mut m: CharMap<u32> = CharMap::default();
+///
+/// m.insert('a', 0);
+/// m.insert('b', 1);
+///
+/// assert!(m.contains_key(&'a'));
+/// assert!(m.contains_key(&'b'));
+/// ```
+#[cfg(feature = "std")]
+pub type CharMap<V> = std::collections::HashMap<char, V, BuildNoHashHasher<char>>;
+
 /// A `HashSet` of integers, using `NoHashHasher` to perform no hashing at all.
 ///
 /// # Examples
@@ -51,6 +71,26 @@ pub type IntMap<K, V> = std::collections::HashMap<K, V, BuildNoHashHasher<K>>;
 /// ```
 #[cfg(feature = "std")]
 pub type IntSet<T> = std::collections::HashSet<T, BuildNoHashHasher<T>>;
+
+/// A `HashSet` of `char` values, using `NoHashHasher` to perform no hashing at all.
+///
+/// # Examples
+///
+/// See [`IsEnabled`] for use with custom types.
+///
+/// ```
+/// use fp_nohash_hasher::CharSet;
+///
+/// let mut m = CharSet::default();
+///
+/// m.insert('a');
+/// m.insert('b');
+///
+/// assert!(m.contains(&'a'));
+/// assert!(m.contains(&'b'));
+/// ```
+#[cfg(feature = "std")]
+pub type CharSet = std::collections::HashSet<char, BuildNoHashHasher<char>>;
 
 /// An alias for `BuildHasherDefault` for use with `NoHashHasher`.
 ///
@@ -194,6 +234,8 @@ impl IsEnabled for i16 {}
 impl IsEnabled for i32 {}
 impl IsEnabled for i64 {}
 impl IsEnabled for isize {}
+impl IsEnabled for char {}
+impl IsEnabled for bool {}
 
 #[cfg(not(debug_assertions))]
 impl<T: IsEnabled> Hasher for NoHashHasher<T> {
@@ -422,6 +464,26 @@ mod tests {
         let mut h = NoHashHasher::<isize>::default();
         h.write_isize(42);
         h.write_isize(43);
+    }
+
+    #[cfg(feature = "std")]
+    #[test]
+    fn char_map_ok() {
+        let mut m: CharMap<u32> = CharMap::default();
+        m.insert('a', 0);
+        m.insert('b', 1);
+        assert!(m.contains_key(&'a'));
+        assert!(m.contains_key(&'b'));
+    }
+
+    #[cfg(feature = "std")]
+    #[test]
+    fn bool_map_ok() {
+        let mut m: std::collections::HashMap<bool, u32, BuildNoHashHasher<bool>> = std::collections::HashMap::with_hasher(BuildNoHashHasher::default());
+        m.insert(true, 0);
+        m.insert(false, 1);
+        assert!(m.contains_key(&true));
+        assert!(m.contains_key(&false));
     }
 }
 
