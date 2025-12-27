@@ -7,7 +7,7 @@ i64, isize}` methods as its hash output.
 `NoHashHasher` does not implement any hashing algorithm and can only be used
 with types which can be mapped directly to a numeric value. Out of the box
 `NoHashHasher` is enabled for `u8`, `u16`, `u32`, `u64`, `usize`, `i8`, `i16`,
-`i32`, `i64`, and `isize`. Types that should be used with `NoHashHasher` need
+`i32`, `i64`, `isize`, `char`, and `bool`. Types that should be used with `NoHashHasher` need
 to implement [`IsEnabled`] and by doing so assert that their `Hash` impl invokes
 *only one* of the `Hasher::write_{u8, u16, u32, u64, usize, i8, i16, i32, i64,
 isize}` methods *exactly once*.
