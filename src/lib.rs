@@ -336,7 +336,7 @@ mod tests {
 
     #[cfg(debug_assertions)]
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "NoHashHasher: second write attempt detected.")]
     fn u8_double_usage() {
         let mut h = NoHashHasher::<u8>::default();
         h.write_u8(42);
@@ -345,7 +345,7 @@ mod tests {
 
     #[cfg(debug_assertions)]
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "NoHashHasher: second write attempt detected.")]
     fn u16_double_usage() {
         let mut h = NoHashHasher::<u16>::default();
         h.write_u16(42);
@@ -354,7 +354,7 @@ mod tests {
 
     #[cfg(debug_assertions)]
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "NoHashHasher: second write attempt detected.")]
     fn u32_double_usage() {
         let mut h = NoHashHasher::<u32>::default();
         h.write_u32(42);
@@ -363,7 +363,7 @@ mod tests {
 
     #[cfg(debug_assertions)]
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "NoHashHasher: second write attempt detected.")]
     fn u64_double_usage() {
         let mut h = NoHashHasher::<u64>::default();
         h.write_u64(42);
@@ -372,7 +372,7 @@ mod tests {
 
     #[cfg(debug_assertions)]
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "NoHashHasher: second write attempt detected.")]
     fn usize_double_usage() {
         let mut h = NoHashHasher::<usize>::default();
         h.write_usize(42);
@@ -381,7 +381,7 @@ mod tests {
 
     #[cfg(debug_assertions)]
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "NoHashHasher: second write attempt detected.")]
     fn i8_double_usage() {
         let mut h = NoHashHasher::<i8>::default();
         h.write_i8(42);
@@ -390,7 +390,7 @@ mod tests {
 
     #[cfg(debug_assertions)]
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "NoHashHasher: second write attempt detected.")]
     fn i16_double_usage() {
         let mut h = NoHashHasher::<i16>::default();
         h.write_i16(42);
@@ -399,7 +399,7 @@ mod tests {
 
     #[cfg(debug_assertions)]
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "NoHashHasher: second write attempt detected.")]
     fn i32_double_usage() {
         let mut h = NoHashHasher::<i32>::default();
         h.write_i32(42);
@@ -408,7 +408,7 @@ mod tests {
 
     #[cfg(debug_assertions)]
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "NoHashHasher: second write attempt detected.")]
     fn i64_double_usage() {
         let mut h = NoHashHasher::<i64>::default();
         h.write_i64(42);
@@ -417,7 +417,7 @@ mod tests {
 
     #[cfg(debug_assertions)]
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "NoHashHasher: second write attempt detected.")]
     fn isize_double_usage() {
         let mut h = NoHashHasher::<isize>::default();
         h.write_isize(42);
