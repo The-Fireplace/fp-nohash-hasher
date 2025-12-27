@@ -136,12 +136,12 @@ impl<T> Default for NoHashHasher<T> {
 impl<T> Clone for NoHashHasher<T> {
     #[cfg(debug_assertions)]
     fn clone(&self) -> Self {
-        NoHashHasher(self.0, self.1, self.2)
+        *self
     }
 
     #[cfg(not(debug_assertions))]
     fn clone(&self) -> Self {
-        NoHashHasher(self.0, self.1)
+        *self
     }
 }
 
