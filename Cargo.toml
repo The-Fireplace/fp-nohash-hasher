@@ -1,5 +1,5 @@
 [package]
-name = "fireplace-nohash-hasher"
+name = "fp-nohash-hasher"
 version = "0.1.0"
 edition = "2024"
 authors = ["Parity Technologies <admin@parity.io>", "The_Fireplace <git@the-fireplace.dev>"]
