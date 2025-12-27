@@ -1,11 +1,11 @@
 [package]
-name = "nohash-hasher"
-version = "0.2.0"
-edition = "2018"
-authors = ["Parity Technologies <admin@parity.io>"]
+name = "fireplace-nohash-hasher"
+version = "0.1.0"
+edition = "2024"
+authors = ["Parity Technologies <admin@parity.io>", "The_Fireplace <git@the-fireplace.dev>"]
 license = "Apache-2.0 OR MIT"
 description = "An implementation of `std::hash::Hasher` which does not hash at all."
-repository = "https://github.com/paritytech/nohash-hasher"
+repository = "https://github.com/The-Fireplace/nohash-hasher"
 readme = "README.md"
 keywords = ["hash", "hasher", "hashmap", "hashset"]
 
