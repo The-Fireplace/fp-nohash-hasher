@@ -12,7 +12,7 @@ to implement [`IsEnabled`] and by doing so assert that their `Hash` impl invokes
 *only one* of the `Hasher::write_{u8, u16, u32, u64, usize, i8, i16, i32, i64,
 isize}` methods *exactly once*.
 
-Forked from the nohash-hasher crate, modified to include char and bool.
+Forked from the nohash-hasher crate by Parity Technologies, modified to include char and bool. Full change details for this fork can be found in [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
