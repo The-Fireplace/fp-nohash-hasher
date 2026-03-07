@@ -8,6 +8,11 @@ description = "An implementation of `std::hash::Hasher` which does not hash at a
 repository = "https://github.com/The-Fireplace/fp-nohash-hasher"
 readme = "README.md"
 keywords = ["hash", "hasher", "hashmap", "hashset"]
+exclude = [
+    ".gitignore",
+    ".editorconfig",
+    ".github/**",
+]
 
 [features]
 default = ["std"]
