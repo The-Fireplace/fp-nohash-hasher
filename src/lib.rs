@@ -203,6 +203,9 @@ impl<T> Copy for NoHashHasher<T> {}
 /// # Example
 ///
 /// ```
+/// use std::hash::{BuildHasher, Hasher, Hash};
+/// use fp_nohash_hasher::NoHashHasher;
+///
 /// #[derive(PartialEq, Eq)]
 /// struct SomeType(u32);
 ///
@@ -213,7 +216,7 @@ impl<T> Copy for NoHashHasher<T> {}
 /// }
 ///
 /// impl fp_nohash_hasher::IsEnabled for SomeType {}
-///
+///#[cfg(feature = "std")] {
 /// let mut m = fp_nohash_hasher::IntMap::default();
 ///
 /// m.insert(SomeType(1), 't');
@@ -221,6 +224,13 @@ impl<T> Copy for NoHashHasher<T> {}
 ///
 /// assert_eq!(Some(&'t'), m.get(&SomeType(1)));
 /// assert_eq!(Some(&'f'), m.get(&SomeType(0)));
+/// }
+///
+/// let mut hasher: NoHashHasher<SomeType> = fp_nohash_hasher::BuildNoHashHasher::default().build_hasher();
+///
+/// SomeType(12345).hash(&mut hasher);
+///
+/// assert_eq!(12345u64, hasher.finish());
 /// ```
 pub trait IsEnabled {}
 
