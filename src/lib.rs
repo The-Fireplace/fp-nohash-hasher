@@ -1,4 +1,4 @@
-// Copyright 2018-2020 Parity Technologies (UK) Ltd.
+// Copyright 2018-2020 Parity Technologies (UK) Ltd; 2025-2026 The_Fireplace
 //
 // Licensed under the Apache License, Version 2.0 or MIT license, at your option.
 //
