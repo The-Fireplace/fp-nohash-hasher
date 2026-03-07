@@ -216,7 +216,7 @@ impl<T> Copy for NoHashHasher<T> {}
 /// }
 ///
 /// impl fp_nohash_hasher::IsEnabled for SomeType {}
-///#[cfg(feature = "std")] {
+/// #[cfg(feature = "std")] {
 /// let mut m = fp_nohash_hasher::IntMap::default();
 ///
 /// m.insert(SomeType(1), 't');
