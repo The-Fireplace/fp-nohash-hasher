@@ -19,10 +19,18 @@ jobs:
         features: ["", "--no-default-features"]
 
     steps:
-    - uses: actions/checkout@v6
-    - name: Set Toolchain
-      run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
+    - name: Checkout sources
+      uses: actions/checkout@v6
+    - name: Install toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        profile: minimal
+        toolchain: ${{ matrix.toolchain }}
+        override: true
+        components: clippy
     - name: Build
       run: cargo build --verbose ${{ matrix.features }}
     - name: Run tests
       run: cargo test --verbose ${{ matrix.features }}
+    - name: Verify lints
+      run: cargo clippy -- -D warnings
