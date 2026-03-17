@@ -13,6 +13,7 @@ exclude = [
     ".editorconfig",
     ".github/**",
 ]
+rust-version = "1.85"
 
 [features]
 default = ["std"]

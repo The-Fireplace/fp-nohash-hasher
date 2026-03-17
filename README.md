@@ -1,3 +1,7 @@
+[![minimum rustc: 1.85.0](https://img.shields.io/badge/minimum%20rustc-1.85.0-yellowgreen?logo=rust&style=flat-square)](https://www.whatrustisit.com)
+[![version](https://img.shields.io/crates/v/fp-nohash-hasher?color=blue&logo=rust&style=flat-square)](https://crates.io/crates/fp-nohash-hasher)
+[![build status](https://img.shields.io/github/actions/workflow/status/The-Fireplace/fp-nohash-hasher/rust.yml?branch=master&style=flat-square)](https://github.com/The-Fireplace/fp-nohash-hasher/actions)
+
 # NoHashHasher
 
 For an enabled type `T`, a `NoHashHasher<T>` implements `std::hash::Hasher` and
